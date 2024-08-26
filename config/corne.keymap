@@ -169,7 +169,7 @@
         &none  &kp Q            &kp W            &kp E         &kp R              &kp T        &kp Y    &kp U              &kp I         &kp O            &kp P               &kp BSLH
         &none  &hml LEFT_ALT A  &hml LEFT_GUI S  &hml LCTRL D  &hml LEFT_SHIFT F  &kp G        &kp H    &hmr LEFT_SHIFT J  &hmr LCTRL K  &hmr LEFT_GUI L  &hmr LEFT_ALT SEMI  &kp APOS
         &none  &kp Z            &kp X            &kp C         &kp V              &kp B        &kp N    &kp M              &kp COMMA     &kp DOT          &kp FSLH            &kp ESC
-                                                 &lt 2 ESCAPE  &lt 1 SPACE        &lt 1 TAB    &kp RET  &lt 0 BACKSPACE    &kp DELETE
+                                                 &lt 2 ESCAPE  &lt 3 SPACE        &lt 1 TAB    &kp RET  &lt 0 BACKSPACE    &kp DELETE
       >;
     };
 
@@ -193,28 +193,28 @@
 
     nav {
       bindings = <
-        &trans  &trans  &trans  &trans  &trans  &trans    &kp K_REDO  &kp K_PASTE  &kp K_COPY     &kp K_CUT    &kp K_UNDO    &trans
-        &trans  &trans  &trans  &trans  &trans  &trans    &kp LEFT    &kp DOWN     &kp UP         &kp RIGHT    &kp CAPSLOCK  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans    &kp K_REDO  &kp K_PASTE  &kp K_COPY     &kp K_CUT    &kp K_UNDO    &kp LC(U)
+        &trans  &trans  &trans  &trans  &trans  &trans    &kp LEFT    &kp DOWN     &kp UP         &kp RIGHT    &kp CAPSLOCK  &kp LC(D)
         &trans  &trans  &trans  &trans  &trans  &trans    &kp INS     &kp HOME     &kp PAGE_DOWN  &kp PAGE_UP  &kp END       &trans
                                 &trans  &trans  &trans    &kp ENTER   &kp BSPC     &kp DEL
       >;
     };
 
-    layer_6 {
+    fun {
       bindings = <
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
+        &trans  &kp F12  &kp F7  &kp F8      &kp F9     &kp PRINTSCREEN    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp F11  &kp F4  &kp F5      &kp F6     &kp SCROLLLOCK     &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp F10  &kp F1  &kp F2      &kp F3     &kp PAUSE_BREAK    &trans  &trans  &trans  &trans  &trans  &trans
+                                 &kp K_MENU  &kp SPACE  &kp TAB            &trans  &trans  &trans
       >;
     };
 
-    layer_7 {
+    media {
       bindings = <
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
+        &trans  &kp V           &kp S              &kp H            &kp M             &kp R         &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp K_PREVIOUS  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp K_NEXT        &kp E         &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp N3          &kp NUMBER_2       &kp NUMBER_1     &kp NUMBER_0      &kp O         &trans  &trans  &trans  &trans  &trans  &trans
+                                                   &kp K_STOP       &kp K_PLAY_PAUSE  &kp K_MUTE    &trans  &trans  &trans
       >;
     };
 
