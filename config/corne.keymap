@@ -1,9 +1,5 @@
 
-#line 4 "/home/eguedj/shared/projects/miryoku_zmk_lp/miryoku/miryoku.dtsi"
-
 #include <behaviors/mouse_key_press.dtsi>
-
-#line 18 "/home/eguedj/shared/projects/miryoku_zmk_lp/miryoku/miryoku.dtsi"
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -119,7 +115,6 @@
     };
 };
 
-#line 20 "/home/eguedj/shared/projects/miryoku_zmk_lp/miryoku/
 
 miryoku_shift_functions.dtsi {
     "
@@ -263,7 +258,6 @@ miryoku_shift_functions.dtsi {
     };
 };
 
-#line 18 "/home/eguedj/shared/projects/miryoku_zmk_lp/miryoku/
 
 miryoku_double_tap_guard.dtsi {
     "
@@ -378,7 +372,6 @@ miryoku_double_tap_guard.dtsi {
     };
 };
 
-#line 4 "/home/eguedj/shared/projects/miryoku_zmk_lp/miryoku/
 
 miryoku_mousekeys.dtsi {
     "
@@ -416,7 +409,6 @@ miryoku_mousekeys.dtsi {
     };
 };
 
-#line 4 "/home/eguedj/shared/projects/miryoku_zmk_lp/miryoku/
 
 miryoku_behaviors.dtsi {
     "
