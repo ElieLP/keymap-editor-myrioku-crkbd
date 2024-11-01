@@ -1,77 +1,443 @@
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 
-// dt-formatter: indent = "  "
-// dt-formatter: multilineIntegerCellsIndent = "reindent"
-// dt-formatter: multilineListCommaStyle = "leading"
+#line 4 "/home/eguedj/shared/projects/miryoku_zmk_lp/miryoku/miryoku.dtsi"
+
+#include <behaviors/mouse_key_press.dtsi>
+
+#line 18 "/home/eguedj/shared/projects/miryoku_zmk_lp/miryoku/miryoku.dtsi"
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/rgb.h>
 
 / {
-  combos { compatible = "zmk,combos"; };
+    keymap {
+        compatible = "zmk,keymap";
 
-  conditional_layers {
-    compatible = "zmk,conditional-layers";
+        BASE {
+            display-name = "Base";
+            bindings = <
+&kp TAB    &kp Q         &kp W         &kp E          &kp R          &kp T          &kp Y        &kp U          &kp I          &kp O                   &kp P            &kp BSPC
+&kp ESC    &u_mt LGUI A  &u_mt LALT S  &u_mt LCTRL D  &u_mt LSHFT F  &kp G          &kp H        &u_mt LSHFT J  &u_mt LCTRL K  &u_mt LALT L            &u_mt LGUI SEMI  &kp SQT
+&kp LSHFT  &u_lt 3 Z     &u_mt RALT X  &kp C          &kp V          &kp B          &kp N        &kp M          &kp COMMA      &u_mt RIGHT_ALT PERIOD  &u_lt 3 SLASH    &kp RET
+                                       &u_lt 6 ESC    &u_lt 4 SPACE  &u_lt 5 TAB    &u_lt 8 RET  &u_lt 7 BSPC   &u_lt 9 DEL
+            >;
+        };
 
-    tri_layer {
-      if-layers = <2 2>;
-      then-layer = <3>;
+        EXTRA {
+            display-name = "Extra";
+            bindings = <
+&none  &kp Q         &kp W         &kp E          &kp R          &kp T          &kp Y        &kp U          &kp I          &kp O           &kp P           &none
+&none  &u_mt LGUI A  &u_mt LALT S  &u_mt LCTRL D  &u_mt LSHFT F  &kp G          &kp H        &u_mt LSHFT J  &u_mt LCTRL K  &u_mt LALT L    &u_mt LGUI SQT  &none
+&none  &u_lt 3 Z     &u_mt RALT X  &kp C          &kp V          &kp B          &kp N        &kp M          &kp COMMA      &u_mt RALT DOT  &u_lt 3 SLASH   &none
+                                   &u_lt 6 ESC    &u_lt 4 SPACE  &u_lt 5 TAB    &u_lt 8 RET  &u_lt 7 BSPC   &u_lt 9 DEL
+            >;
+        };
+
+        TAP {
+            display-name = "Tap";
+            bindings = <
+&kp TAB     &kp Q  &kp W  &kp E    &kp R      &kp T      &kp Y    &kp U     &kp I      &kp O    &kp P     &kp BACKSPACE
+&kp ESCAPE  &kp A  &kp S  &kp D    &kp F      &kp G      &kp H    &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHIFT  &kp Z  &kp X  &kp C    &kp V      &kp B      &kp N    &kp M     &kp COMMA  &kp DOT  &kp FSLH  &none
+                          &kp ESC  &kp SPACE  &kp TAB    &kp RET  &kp BSPC  &kp DEL
+            >;
+        };
+
+        BUTTON {
+            display-name = "Button";
+            bindings = <
+&none  &kp K_UNDO  &kp LS(DEL)  &kp LC(INS)  &kp LS(INS)  &kp K_AGAIN    &kp K_AGAIN  &kp LS(INS)  &kp LC(INS)  &kp LS(DEL)  &kp K_UNDO  &none
+&none  &kp LGUI    &kp LALT     &kp LCTRL    &kp LSHFT    &none          &none        &kp LSHFT    &kp LCTRL    &kp LALT     &kp LGUI    &none
+&none  &kp K_UNDO  &kp LS(DEL)  &kp LC(INS)  &kp LS(INS)  &kp K_AGAIN    &kp K_AGAIN  &kp LS(INS)  &kp LC(INS)  &kp LS(DEL)  &kp K_UNDO  &none
+                                &mkp MB3     &mkp MB1     &mkp MB2       &mkp MB2     &mkp MB1     &mkp MB3
+            >;
+        };
+
+        NAV {
+            display-name = "Nav";
+            bindings = <
+&none  &bootloader  &u_to_U_TAP  &u_to_U_EXTRA  &u_to_U_BASE  &none    &kp K_AGAIN     &kp LS(INS)     &kp LC(INS)   &kp LS(DEL)  &kp K_UNDO    &none
+&none  &kp LGUI     &kp LALT     &kp LCTRL      &kp LSHFT     &none    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT    &u_caps_word  &none
+&none  &none        &kp RALT     &u_to_U_NUM    &u_to_U_NAV   &none    &kp HOME        &kp PG_DN       &kp PG_UP     &kp END      &kp INS       &none
+                                 &none          &none         &none    &kp RET         &kp BSPC        &kp DEL
+            >;
+        };
+
+        ROW_NUM {
+            display-name = "Mouse";
+            bindings = <
+&kp GRAVE  &kp N1    &kp N2    &kp N3       &kp N4         &kp N5    &kp N6     &kp N7  &kp N8   &kp N9  &kp N0     &kp MINUS
+&none      &kp LGUI  &kp LALT  &kp LCTRL    &kp LSHFT      &none     &none      &kp N4  &kp N5   &kp N6  &kp KP_N6  &none
+&none      &none     &kp RALT  &u_to_U_SYM  &u_to_U_MOUSE  &none     &none      &kp N1  &kp N2   &kp N3  &none      &none
+                               &none        &none          &none     &kp MINUS  &kp N0  &kp DOT
+            >;
+        };
+
+        MEDIA {
+            display-name = "Media";
+            bindings = <
+&none  &bootloader  &u_to_U_TAP  &u_to_U_EXTRA  &u_to_U_BASE   &none    &rgb_ug RGB_TOG    &rgb_ug RGB_EFF  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &none
+&none  &kp LGUI     &kp LALT     &kp LCTRL      &kp LSHFT      &none    &ext_power EP_TOG  &kp C_PREV       &kp C_VOL_DN     &kp C_VOL_UP     &kp C_NEXT       &none
+&none  &none        &kp RALT     &u_to_U_FUN    &u_to_U_MEDIA  &none    &u_out_tog         &u_bt_sel_0      &u_bt_sel_1      &u_bt_sel_2      &u_bt_sel_3      &none
+                                 &none          &none          &none    &kp C_STOP         &kp C_PP         &kp C_MUTE
+            >;
+        };
+
+        NUM {
+            display-name = "Num";
+            bindings = <
+&none  &kp LBKT   &kp N7  &kp N8   &kp N9  &kp RBKT     &none  &u_to_U_BASE  &u_to_U_EXTRA  &u_to_U_TAP  &bootloader  &none
+&none  &kp PLUS   &kp N4  &kp N5   &kp N6  &kp EQUAL    &none  &kp LSHFT     &kp LCTRL      &kp LALT     &kp LGUI     &none
+&none  &kp GRAVE  &kp N1  &kp N2   &kp N3  &kp BSLH     &none  &u_to_U_NUM   &u_to_U_NAV    &kp RALT     &none        &none
+                          &kp DOT  &kp N0  &kp MINUS    &none  &none         &none
+            >;
+        };
+
+        SYM {
+            display-name = "Sym";
+            bindings = <
+&none  &kp LBRC       &kp AMPS  &kp ASTRK  &kp LPAR   &kp RBRC            &none  &u_to_U_BASE  &u_to_U_EXTRA  &u_to_U_TAP  &bootloader  &none
+&none  &kp LESS_THAN  &kp DLLR  &kp PRCNT  &kp CARET  &kp GREATER_THAN    &none  &kp LSHFT     &kp LCTRL      &kp LALT     &kp LGUI     &none
+&none  &kp TILDE      &kp EXCL  &kp AT     &kp HASH   &kp PIPE            &none  &u_to_U_SYM   &u_to_U_MOUSE  &kp RALT     &none        &none
+                                &kp LPAR   &kp RPAR   &kp UNDER           &none  &none         &none
+            >;
+        };
+
+        FUN {
+            display-name = "Fun";
+            bindings = <
+&none  &kp F12  &kp F7  &kp F8     &kp F9     &kp PSCRN          &none  &u_to_U_BASE  &u_to_U_EXTRA  &u_to_U_TAP  &bootloader  &none
+&none  &kp F11  &kp F4  &kp F5     &kp F6     &kp SLCK           &none  &kp LSHFT     &kp LCTRL      &kp LALT     &kp LGUI     &none
+&none  &kp F10  &kp F1  &kp F2     &kp F3     &kp PAUSE_BREAK    &none  &u_to_U_FUN   &u_to_U_MEDIA  &kp RALT     &none        &none
+                        &kp K_APP  &kp SPACE  &kp TAB            &none  &none         &none
+            >;
+        };
     };
-  };
-
-  keymap {
-    compatible = "zmk,keymap";
-
-    base {
-      bindings = <
-        &none  &kp Q           &kp W           &kp E         &kp R         &kp T        &kp Y    &kp U            &kp I        &kp O       &kp P                      &kp BSLH
-        &none  &mt LEFT_ALT A  &mt LEFT_GUI S  &mt LCTRL D   &mt LSHIFT F  &kp G        &kp H    &mt LSHIFT J     &mt LCTRL K  &mt LGUI L  &mt LEFT_ALT SINGLE_QUOTE  &kp APOS
-        &none  &kp Z           &kp X           &kp C         &kp V         &kp B        &kp N    &kp M            &kp COMMA    &kp DOT     &kp FSLH                   &kp ESC
-                                               &lt 2 ESCAPE  &lt 3 SPACE   &lt 1 TAB    &kp RET  &lt 0 BACKSPACE  &kp DELETE
-      >;
-    };
-
-    num {
-      bindings = <
-        &trans  &kp N1    &kp N2    &kp N3     &kp N4     &kp N5    &kp N6     &kp N7  &kp N8     &kp N9  &kp N0     &trans
-        &trans  &kp LALT  &kp LGUI  &kp LCTRL  &kp LSHFT  &trans    &kp EQUAL  &kp N4  &kp N5     &kp N6  &kp SEMI   &trans
-        &trans  &trans    &trans    &trans     &trans     &trans    &kp BSLH   &kp N1  &kp N2     &kp N3  &kp GRAVE  &trans
-                                    &trans     &trans     &trans    &kp DOT    &kp N0  &kp MINUS
-      >;
-    };
-
-    sym {
-      bindings = <
-        &trans  &kp EXCL  &kp AT    &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS   &kp STAR  &kp LPAR  &kp RPAR  &trans
-        &trans  &kp LALT  &kp LGUI  &kp LCTRL  &kp LSHFT  &trans       &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &kp BSLH  &kp GRAVE
-        &trans  &trans    &trans    &trans     &trans     &trans       &kp UNDER  &kp PLUS   &kp LBRC  &kp RBRC  &kp PIPE  &kp TILDE
-                                    &trans     &trans     &trans       &trans     &trans     &trans
-      >;
-    };
-
-    nav {
-      bindings = <
-        &trans  &trans    &trans    &trans     &trans     &trans    &kp K_REDO  &kp K_PASTE  &kp K_COPY     &kp K_CUT    &kp K_UNDO    &kp LC(U)
-        &trans  &kp LALT  &kp LGUI  &kp LCTRL  &kp LSHFT  &trans    &kp LEFT    &kp DOWN     &kp UP         &kp RIGHT    &kp CAPSLOCK  &kp LC(D)
-        &trans  &trans    &trans    &trans     &trans     &trans    &kp INS     &kp HOME     &kp PAGE_DOWN  &kp PAGE_UP  &kp END       &trans
-                                    &trans     &trans     &trans    &kp ENTER   &kp BSPC     &kp DEL
-      >;
-    };
-
-    fun {
-      bindings = <
-        &trans  &kp F12  &kp F7  &kp F8      &kp F9     &kp PRINTSCREEN    &trans  &trans     &trans     &trans    &trans    &trans
-        &trans  &kp F11  &kp F4  &kp F5      &kp F6     &kp SCROLLLOCK     &trans  &kp LSHFT  &kp LCTRL  &kp LGUI  &kp LALT  &trans
-        &trans  &kp F10  &kp F1  &kp F2      &kp F3     &kp PAUSE_BREAK    &trans  &trans     &trans     &trans    &trans    &trans
-                                 &kp K_MENU  &kp SPACE  &kp TAB            &trans  &trans     &trans
-      >;
-    };
-
-    media {
-      bindings = <
-        &trans  &kp V           &kp S              &kp H            &kp M             &kp R         &trans  &trans     &trans     &trans    &trans    &trans
-        &trans  &kp K_PREVIOUS  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp K_NEXT        &kp E         &trans  &kp LSHFT  &kp LCTRL  &kp LGUI  &kp LALT  &trans
-        &trans  &kp N3          &kp NUMBER_2       &kp NUMBER_1     &kp NUMBER_0      &kp O         &trans  &trans     &trans     &trans    &trans    &trans
-                                                   &kp K_STOP       &kp K_PLAY_PAUSE  &kp K_MUTE    &trans  &trans     &trans
-      >;
-    };
-  };
 };
+
+#line 20 "/home/eguedj/shared/projects/miryoku_zmk_lp/miryoku/
+
+miryoku_shift_functions.dtsi {
+    "
+/
+
+    macros {
+        u_macro_u_bt_sel_0: u_macro_u_bt_sel_0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings = <&bt BT_SEL 0 &bt BT_CLR>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_bt_sel_0: u_bt_sel_0 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0>, <&u_macro_u_bt_sel_0>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+};
+
+/ {
+    macros {
+        u_macro_u_bt_sel_1: u_macro_u_bt_sel_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings = <&bt BT_SEL 1 &bt BT_CLR>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_bt_sel_1: u_bt_sel_1 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>, <&u_macro_u_bt_sel_1>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+};
+
+/ {
+    macros {
+        u_macro_u_bt_sel_2: u_macro_u_bt_sel_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings = <&bt BT_SEL 2 &bt BT_CLR>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_bt_sel_2: u_bt_sel_2 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2>, <&u_macro_u_bt_sel_2>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+};
+
+/ {
+    macros {
+        u_macro_u_bt_sel_3: u_macro_u_bt_sel_3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings = <&bt BT_SEL 3 &bt BT_CLR>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_bt_sel_3: u_bt_sel_3 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 3>, <&u_macro_u_bt_sel_3>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+};
+
+/ {
+    macros {
+        u_macro_u_bt_sel_4: u_macro_u_bt_sel_4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings = <&bt BT_SEL 4 &bt BT_CLR>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_bt_sel_4: u_bt_sel_4 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 4>, <&u_macro_u_bt_sel_4>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_out_tog: u_out_tog {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&out OUT_TOG>, <&out OUT_USB>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_caps_word: u_caps_word {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&caps_word>, <&kp CAPS>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+};
+
+#line 18 "/home/eguedj/shared/projects/miryoku_zmk_lp/miryoku/
+
+miryoku_double_tap_guard.dtsi {
+    "
+/
+
+    behaviors {
+        u_to_U_BASE: u_to_U_BASE {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&none>, <&to 0>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_to_U_EXTRA: u_to_U_EXTRA {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&none>, <&to 1>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_to_U_TAP: u_to_U_TAP {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&none>, <&to 2>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_to_U_BUTTON: u_to_U_BUTTON {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&none>, <&to 3>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_to_U_NAV: u_to_U_NAV {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&none>, <&to 4>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_to_U_MOUSE: u_to_U_MOUSE {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&none>, <&to 5>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_to_U_MEDIA: u_to_U_MEDIA {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&none>, <&to 6>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_to_U_NUM: u_to_U_NUM {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&none>, <&to 7>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_to_U_SYM: u_to_U_SYM {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&none>, <&to 8>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        u_to_U_FUN: u_to_U_FUN {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&none>, <&to 9>;
+        };
+    };
+};
+
+#line 4 "/home/eguedj/shared/projects/miryoku_zmk_lp/miryoku/
+
+miryoku_mousekeys.dtsi {
+    "
+/
+
+    macros {
+        u_macro_btn1: u_macro_btn1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings = <&kp KP_SLASH &kp KP_N5>;
+        };
+    };
+};
+
+/ {
+    macros {
+        u_macro_btn2: u_macro_btn2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings = <&kp KP_MINUS &kp KP_N5>;
+        };
+    };
+};
+
+/ {
+    macros {
+        u_macro_btn3: u_macro_btn3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings = <&kp KP_ASTERISK &kp KP_N5>;
+        };
+    };
+};
+
+#line 4 "/home/eguedj/shared/projects/miryoku_zmk_lp/miryoku/
+
+miryoku_behaviors.dtsi {
+    "
+/
+
+    behaviors {
+        u_mt: u_mt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+
+        u_lt: u_lt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
+        };
+    };
+};
+;
