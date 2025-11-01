@@ -1,12 +1,11 @@
-
 #include <behaviors/mouse_key_press.dtsi>
-
+#include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
 / {
@@ -106,15 +105,14 @@
         FUN {
             display-name = "Fun";
             bindings = <
-&none  &kp F12  &kp F7  &kp F8     &kp F9     &kp PSCRN          &none  &u_to_U_BASE  &u_to_U_EXTRA  &u_to_U_TAP  &bootloader  &none
-&none  &kp F11  &kp F4  &kp F5     &kp F6     &kp SLCK           &none  &kp LSHFT     &kp LCTRL      &kp LALT     &kp LGUI     &none
-&none  &kp F10  &kp F1  &kp F2     &kp F3     &kp PAUSE_BREAK    &none  &u_to_U_FUN   &u_to_U_MEDIA  &kp RALT     &none        &none
-                        &kp K_APP  &kp SPACE  &kp TAB            &none  &none         &none
+&studio_unlock  &kp F12  &kp F7  &kp F8     &kp F9     &kp PSCRN          &none  &u_to_U_BASE  &u_to_U_EXTRA  &u_to_U_TAP  &bootloader  &none
+&none           &kp F11  &kp F4  &kp F5     &kp F6     &kp SLCK           &none  &kp LSHFT     &kp LCTRL      &kp LALT     &kp LGUI     &none
+&none           &kp F10  &kp F1  &kp F2     &kp F3     &kp PAUSE_BREAK    &none  &u_to_U_FUN   &u_to_U_MEDIA  &kp RALT     &none        &none
+                                 &kp K_APP  &kp SPACE  &kp TAB            &none  &none         &none
             >;
         };
     };
 };
-
 
 / {
     macros {
@@ -255,7 +253,6 @@
     };
 };
 
-
 / {
     behaviors {
         u_to_U_BASE: u_to_U_BASE {
@@ -366,10 +363,7 @@
     };
 };
 
-
-
 / {
-
     macros {
         u_macro_btn1: u_macro_btn1 {
             compatible = "zmk,behavior-macro";
@@ -401,7 +395,6 @@
         };
     };
 };
-
 
 / {
     behaviors {
