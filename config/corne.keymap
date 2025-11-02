@@ -24,6 +24,10 @@
 #include "combos.dtsi" // Must be sourced after HRM-combo hack.
 #include "leader.dtsi"
 
+// Sticky shift + leader.
+ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
+
+
 / {
     keymap {
         compatible = "zmk,keymap";
