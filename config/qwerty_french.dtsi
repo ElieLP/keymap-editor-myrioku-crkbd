@@ -1,0 +1,22 @@
+// French special characters layer
+// Activated via sticky layer (combo RM3 + RM2)
+
+// Define sticky layer behavior for French characters
+ZMK_BEHAVIOR(sl_french, sticky_layer,
+    bindings = <&mo>;
+    release-after-ms = <1000>;
+    ignore-modifiers;
+)
+
+// French characters layer - matches QWERTY key positions
+ZMK_BASE_LAYER(French,
+//╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+    XXX        &uc UC_FR_AE &uc UC_FR_E_ACUTE &uc UC_FR_E_GRAVE XXX  &uc UC_FR_U_GRAVE , &uc UC_FR_OE &uc UC_FR_U_GRAVE &uc UC_FR_I_DIAERESIS &uc UC_FR_OE XXX XXX ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        &uc UC_FR_A_GRAVE XXX &uc UC_FR_E_CIRCUMFLEX XXX XXX , XXX &uc UC_FR_U_CIRCUMFLEX &uc UC_FR_I_CIRCUMFLEX &uc UC_FR_O_CIRCUMFLEX XXX XXX ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        &uc UC_FR_A_CIRCUMFLEX XXX &uc UC_FR_C_CEDILLA XXX XXX , XXX XXX XXX XXX XXX XXX ,
+//╰──────────┴──────────┴──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────╯
+                                     XXX        XXX        XXX      ,   XXX        XXX        XXX
+//                                 ╰──────────┴──────────┴──────────╯ ╰──────────┴──────────┴──────────╯
+)
