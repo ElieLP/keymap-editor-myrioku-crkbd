@@ -422,7 +422,7 @@
             /* Trigger hold when opposite hand or thumbs are pressed */
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
-        )
+        );
 
         /* Right-hand HRMs. */
         ZMK_HOLD_TAP(hmr,
@@ -434,7 +434,7 @@
             /* Trigger hold when opposite hand or thumbs are pressed */
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
-        )
+        );
 
         u_mt: u_mt {
             compatible = "zmk,behavior-hold-tap";
