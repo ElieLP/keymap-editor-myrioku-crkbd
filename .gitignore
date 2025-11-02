@@ -1,1 +1,5 @@
 .west/config
+zephyr
+zmk
+modules
+build
