@@ -15,7 +15,11 @@ manifest:
       path: modules/zmk/helpers
     - name: zmk-unicode
       path: modules/zmk/unicode
+      remote: urob
+      revision: main
     - name: zmk-leader-key
       path: modules/zmk/leader-key
+      remote: urob
+      revision: main
   self:
     path: config
