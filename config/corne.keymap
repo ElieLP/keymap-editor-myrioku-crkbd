@@ -54,112 +54,135 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 // Sticky shift + leader.
 ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
 
+/* Keymap */
 
-/ {
-    keymap {
-        compatible = "zmk,keymap";
+#define XXX &none
+#define ___ &trans
 
-        BASE {
-            display-name = "Base";
-            bindings = <
-&kp TAB    &kp Q         &kp W         &kp E          &kp R          &kp T          &kp Y        &kp U          &kp I          &kp O                   &kp P            &kp BSPC
-&kp ESC    &hml LGUI A   &hml LALT S   &hml LCTRL D   &hml LSHFT F   &kp G          &kp H        &hmr LSHFT J   &hmr LCTRL K   &hmr LALT L             &hmr LGUI SEMI   &kp SQT
-&kp LSHFT  &u_lt 3 Z     &u_mt RALT X  &kp C          &kp V          &kp B          &kp N        &kp M          &kp COMMA      &u_mt RIGHT_ALT PERIOD  &u_lt 3 SLASH    &kp RET
-                                       &u_lt 6 ESC    &u_lt 4 SPACE  &u_lt 5 TAB    &u_lt 8 RET  &u_lt 7 BSPC   &u_lt 9 DEL
-            >;
-        };
+#ifndef ZMK_BASE_LAYER
+  #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH) \
+      ZMK_LAYER(name, LT RT LM RM LB RB LH RH)
+#endif
 
-        EXTRA {
-            display-name = "Extra";
-            bindings = <
-&kp TAB     &kp Q         &kp W         &kp E          &kp R          &kp T          &kp Y        &kp U          &kp I          &kp O           &kp P           &kp BSPC
-&kp ESC     &hml LGUI A   &hml LALT S   &hml LCTRL D   &hml LSHFT F   &kp G          &kp H        &hmr LSHFT J   &hmr LCTRL K   &hmr LALT L     &hmr LGUI SQT   &kp SQT
-&kp LSHFT   &u_lt 3 Z     &u_mt RALT X  &kp C          &kp V          &kp B          &kp N        &kp M          &kp COMMA      &u_mt RALT DOT  &u_lt 3 SLASH   &kp RET
-                                        &u_lt 6 ESC    &u_lt 4 SPACE  &u_lt 5 TAB    &u_lt 8 RET  &u_lt 7 BSPC   &u_lt 9 DEL
-            >;
-        };
+ZMK_BASE_LAYER(Base,
+//╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+    &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T    ,   &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    &kp ESC    &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G ,   &kp H      &hmr LSHFT J &hmr LCTRL K &hmr LALT L &hmr LGUI SEMI &kp SQT ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    &kp LSHFT  &u_lt 3 Z  &u_mt RALT X &kp C      &kp V      &kp B    ,   &kp N      &kp M      &kp COMMA  &u_mt RALT PERIOD &u_lt 3 SLASH &kp RET ,
+//╰──────────┴──────────┴──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────╯
+                                     &u_lt 6 ESC &u_lt 4 SPACE &u_lt 5 TAB , &u_lt 8 RET &u_lt 7 BSPC &u_lt 9 DEL
+//                                 ╰──────────┴──────────┴──────────╯ ╰──────────┴──────────┴──────────╯
+)
 
-        TAP {
-            display-name = "Tap";
-            bindings = <
-&kp TAB     &kp Q  &kp W  &kp E    &kp R      &kp T      &kp Y    &kp U     &kp I      &kp O    &kp P     &kp BACKSPACE
-&kp ESCAPE  &kp A  &kp S  &kp D    &kp F      &kp G      &kp H    &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHIFT  &kp Z  &kp X  &kp C    &kp V      &kp B      &kp N    &kp M     &kp COMMA  &kp DOT  &kp FSLH  &none
-                          &kp ESC  &kp SPACE  &kp TAB    &kp RET  &kp BSPC  &kp DEL
-            >;
-        };
+ZMK_BASE_LAYER(Extra,
+//╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+    &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T    ,   &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    &kp ESC    &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G ,   &kp H      &hmr LSHFT J &hmr LCTRL K &hmr LALT L &hmr LGUI SQT &kp SQT ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    &kp LSHFT  &u_lt 3 Z  &u_mt RALT X &kp C      &kp V      &kp B    ,   &kp N      &kp M      &kp COMMA  &u_mt RALT DOT &u_lt 3 SLASH &kp RET ,
+//╰──────────┴──────────┴──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────╯
+                                     &u_lt 6 ESC &u_lt 4 SPACE &u_lt 5 TAB , &u_lt 8 RET &u_lt 7 BSPC &u_lt 9 DEL
+//                                 ╰──────────┴──────────┴──────────╯ ╰──────────┴──────────┴──────────╯
+)
 
-        BUTTON {
-            display-name = "Button";
-            bindings = <
-&none  &kp K_UNDO  &kp LS(DEL)  &kp LC(INS)  &kp LS(INS)  &kp K_AGAIN    &kp K_AGAIN  &kp LS(INS)  &kp LC(INS)  &kp LS(DEL)  &kp K_UNDO  &none
-&none  &kp LGUI    &kp LALT     &kp LCTRL    &kp LSHFT    &none          &none        &kp LSHFT    &kp LCTRL    &kp LALT     &kp LGUI    &none
-&none  &kp K_UNDO  &kp LS(DEL)  &kp LC(INS)  &kp LS(INS)  &kp K_AGAIN    &kp K_AGAIN  &kp LS(INS)  &kp LC(INS)  &kp LS(DEL)  &kp K_UNDO  &none
-                                &mkp MB3     &mkp MB1     &mkp MB2       &mkp MB2     &mkp MB1     &mkp MB3
-            >;
-        };
+ZMK_BASE_LAYER(Tap,
+//╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+    &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T    ,   &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    &kp ESC    &kp A      &kp S      &kp D      &kp F      &kp G    ,   &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp SQT  ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B    ,   &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   XXX      ,
+//╰──────────┴──────────┴──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────╯
+                                     &kp ESC    &kp SPACE  &kp TAB  ,   &kp RET    &kp BSPC   &kp DEL
+//                                 ╰──────────┴──────────┴──────────╯ ╰──────────┴──────────┴──────────╯
+)
 
-        NAV {
-            display-name = "Nav";
-            bindings = <
-&none  &bootloader  &u_to_U_TAP  &u_to_U_EXTRA  &u_to_U_BASE  &none    &kp K_AGAIN     &kp LS(INS)     &kp LC(INS)   &kp LS(DEL)  &kp K_UNDO    &none
-&none  &kp LGUI     &kp LALT     &kp LCTRL      &kp LSHFT     &none    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT    &u_caps_word  &none
-&none  &none        &kp RALT     &u_to_U_NUM    &u_to_U_NAV   &none    &kp HOME        &kp PG_DN       &kp PG_UP     &kp END      &kp INS       &none
-                                 &none          &none         &none    &kp RET         &kp BSPC        &kp DEL
-            >;
-        };
+ZMK_BASE_LAYER(Button,
+//╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+    XXX        &kp K_UNDO &kp LS(DEL) &kp LC(INS) &kp LS(INS) &kp K_AGAIN , &kp K_AGAIN &kp LS(INS) &kp LC(INS) &kp LS(DEL) &kp K_UNDO XXX      ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  XXX      ,   XXX        &kp LSHFT  &kp LCTRL  &kp LALT   &kp LGUI   XXX      ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        &kp K_UNDO &kp LS(DEL) &kp LC(INS) &kp LS(INS) &kp K_AGAIN , &kp K_AGAIN &kp LS(INS) &kp LC(INS) &kp LS(DEL) &kp K_UNDO XXX      ,
+//╰──────────┴──────────┴──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────╯
+                                     &mkp MB3   &mkp MB1   &mkp MB2 ,   &mkp MB2   &mkp MB1   &mkp MB3
+//                                 ╰──────────┴──────────┴──────────╯ ╰──────────┴──────────┴──────────╯
+)
 
-        ROW_NUM {
-            display-name = "Mouse";
-            bindings = <
-&kp GRAVE  &kp N1    &kp N2    &kp N3       &kp N4         &kp N5    &kp N6     &kp N7  &kp N8   &kp N9  &kp N0     &kp MINUS
-&none      &kp LGUI  &kp LALT  &kp LCTRL    &kp LSHFT      &none     &none      &kp N4  &kp N5   &kp N6  &kp KP_N6  &none
-&none      &none     &kp RALT  &u_to_U_SYM  &u_to_U_MOUSE  &none     &none      &kp N1  &kp N2   &kp N3  &none      &none
-                               &none        &none          &none     &kp MINUS  &kp N0  &kp DOT
-            >;
-        };
+ZMK_BASE_LAYER(Nav,
+//╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+    XXX        &bootloader &u_to_U_TAP &u_to_U_EXTRA &u_to_U_BASE XXX  ,   &kp K_AGAIN &kp LS(INS) &kp LC(INS) &kp LS(DEL) &kp K_UNDO XXX      ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  XXX      ,   &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &u_caps_word XXX    ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        XXX        &kp RALT   &u_to_U_NUM &u_to_U_NAV XXX    ,   &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &kp INS    XXX      ,
+//╰──────────┴──────────┴──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────╯
+                                     XXX        XXX        XXX      ,   &kp RET    &kp BSPC   &kp DEL
+//                                 ╰──────────┴──────────┴──────────╯ ╰──────────┴──────────┴──────────╯
+)
 
-        MEDIA {
-            display-name = "Media";
-            bindings = <
-&none  &bootloader  &u_to_U_TAP  &u_to_U_EXTRA  &u_to_U_BASE   &none    &rgb_ug RGB_TOG    &rgb_ug RGB_EFF  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &none
-&none  &kp LGUI     &kp LALT     &kp LCTRL      &kp LSHFT      &none    &ext_power EP_TOG  &kp C_PREV       &kp C_VOL_DN     &kp C_VOL_UP     &kp C_NEXT       &none
-&none  &none        &kp RALT     &u_to_U_FUN    &u_to_U_MEDIA  &none    &u_out_tog         &u_bt_sel_0      &u_bt_sel_1      &u_bt_sel_2      &u_bt_sel_3      &none
-                                 &none          &none          &none    &kp C_STOP         &kp C_PP         &kp C_MUTE
-            >;
-        };
+ZMK_BASE_LAYER(RowNum,
+//╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+    &kp GRAVE  &kp N1     &kp N2     &kp N3     &kp N4     &kp N5   ,   &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &kp MINUS,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  XXX      ,   XXX        &kp N4     &kp N5     &kp N6     &kp KP_N6  XXX      ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        XXX        &kp RALT   &u_to_U_SYM &u_to_U_MOUSE XXX  ,   XXX        &kp N1     &kp N2     &kp N3     XXX        XXX      ,
+//╰──────────┴──────────┴──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────╯
+                                     XXX        XXX        XXX      ,   &kp MINUS  &kp N0     &kp DOT
+//                                 ╰──────────┴──────────┴──────────╯ ╰──────────┴──────────┴──────────╯
+)
 
-        NUM {
-            display-name = "Num";
-            bindings = <
-&none  &kp LBKT   &kp N7  &kp N8   &kp N9  &kp RBKT     &none  &u_to_U_BASE  &u_to_U_EXTRA  &u_to_U_TAP  &bootloader  &none
-&none  &kp PLUS   &kp N4  &kp N5   &kp N6  &kp EQUAL    &none  &kp LSHFT     &kp LCTRL      &kp LALT     &kp LGUI     &none
-&none  &kp GRAVE  &kp N1  &kp N2   &kp N3  &kp BSLH     &none  &u_to_U_NUM   &u_to_U_NAV    &kp RALT     &none        &none
-                          &kp DOT  &kp N0  &kp MINUS    &none  &none         &none
-            >;
-        };
+ZMK_BASE_LAYER(Media,
+//╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+    XXX        &bootloader &u_to_U_TAP &u_to_U_EXTRA &u_to_U_BASE XXX ,   &rgb_ug RGB_TOG &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI XXX ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  XXX      ,   &ext_power EP_TOG &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT XXX ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        XXX        &kp RALT   &u_to_U_FUN &u_to_U_MEDIA XXX  ,   &u_out_tog &u_bt_sel_0 &u_bt_sel_1 &u_bt_sel_2 &u_bt_sel_3 XXX   ,
+//╰──────────┴──────────┴──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────╯
+                                     XXX        XXX        XXX      ,   &kp C_STOP &kp C_PP   &kp C_MUTE
+//                                 ╰──────────┴──────────┴──────────╯ ╰──────────┴──────────┴──────────╯
+)
 
-        SYM {
-            display-name = "Sym";
-            bindings = <
-&none  &kp LBRC       &kp AMPS  &kp ASTRK  &kp LPAR   &kp RBRC            &none  &u_to_U_BASE  &u_to_U_EXTRA  &u_to_U_TAP  &bootloader  &none
-&none  &kp LESS_THAN  &kp DLLR  &kp PRCNT  &kp CARET  &kp GREATER_THAN    &none  &kp LSHFT     &kp LCTRL      &kp LALT     &kp LGUI     &none
-&none  &kp TILDE      &kp EXCL  &kp AT     &kp HASH   &kp PIPE            &none  &u_to_U_SYM   &u_to_U_MOUSE  &kp RALT     &none        &none
-                                &kp LPAR   &kp RPAR   &kp UNDER           &none  &none         &none
-            >;
-        };
+ZMK_BASE_LAYER(Num,
+//╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+    XXX        &kp LBKT   &kp N7     &kp N8     &kp N9     &kp RBKT ,   XXX        &u_to_U_BASE &u_to_U_EXTRA &u_to_U_TAP &bootloader XXX    ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        &kp PLUS   &kp N4     &kp N5     &kp N6     &kp EQUAL,   XXX        &kp LSHFT  &kp LCTRL  &kp LALT   &kp LGUI   XXX      ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        &kp GRAVE  &kp N1     &kp N2     &kp N3     &kp BSLH ,   XXX        &u_to_U_NUM &u_to_U_NAV &kp RALT   XXX        XXX      ,
+//╰──────────┴──────────┴──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────╯
+                                     &kp DOT    &kp N0     &kp MINUS,   XXX        XXX        XXX
+//                                 ╰──────────┴──────────┴──────────╯ ╰──────────┴──────────┴──────────╯
+)
 
-        FUN {
-            display-name = "Fun";
-            bindings = <
-&studio_unlock  &kp F12  &kp F7  &kp F8     &kp F9     &kp PSCRN          &none  &u_to_U_BASE  &u_to_U_EXTRA  &u_to_U_TAP  &bootloader  &none
-&none           &kp F11  &kp F4  &kp F5     &kp F6     &kp SLCK           &none  &kp LSHFT     &kp LCTRL      &kp LALT     &kp LGUI     &none
-&none           &kp F10  &kp F1  &kp F2     &kp F3     &kp PAUSE_BREAK    &none  &u_to_U_FUN   &u_to_U_MEDIA  &kp RALT     &none        &none
-                                 &kp K_APP  &kp SPACE  &kp TAB            &none  &none         &none
-            >;
-        };
-    };
-};
+ZMK_BASE_LAYER(Sym,
+//╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+    XXX        &kp LBRC   &kp AMPS   &kp ASTRK  &kp LPAR   &kp RBRC ,   XXX        &u_to_U_BASE &u_to_U_EXTRA &u_to_U_TAP &bootloader XXX    ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        &kp LT     &kp DLLR   &kp PRCNT  &kp CARET  &kp GT   ,   XXX        &kp LSHFT  &kp LCTRL  &kp LALT   &kp LGUI   XXX      ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        &kp TILDE  &kp EXCL   &kp AT     &kp HASH   &kp PIPE ,   XXX        &u_to_U_SYM &u_to_U_MOUSE &kp RALT   XXX        XXX      ,
+//╰──────────┴──────────┴──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────╯
+                                     &kp LPAR   &kp RPAR   &kp UNDER,   XXX        XXX        XXX
+//                                 ╰──────────┴──────────┴──────────╯ ╰──────────┴──────────┴──────────╯
+)
+
+ZMK_BASE_LAYER(Fun,
+//╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+    &studio_unlock &kp F12    &kp F7     &kp F8     &kp F9     &kp PSCRN,   XXX        &u_to_U_BASE &u_to_U_EXTRA &u_to_U_TAP &bootloader XXX    ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        &kp F11    &kp F4     &kp F5     &kp F6     &kp SLCK ,   XXX        &kp LSHFT  &kp LCTRL  &kp LALT   &kp LGUI   XXX      ,
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    XXX        &kp F10    &kp F1     &kp F2     &kp F3     &kp PAUSE_BREAK , XXX        &u_to_U_FUN &u_to_U_MEDIA &kp RALT   XXX        XXX      ,
+//╰──────────┴──────────┴──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────╯
+                                     &kp K_APP  &kp SPACE  &kp TAB  ,   XXX        XXX        XXX
+//                                 ╰──────────┴──────────┴──────────╯ ╰──────────┴──────────┴──────────╯
+)
 
 / {
     macros {
