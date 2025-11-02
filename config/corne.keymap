@@ -406,37 +406,30 @@
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5
 #define THUMBS LH2 LH1 LH0 RH0 RH1 RH2
 
+/* Left-hand HRMs */
+ZMK_HOLD_TAP(hml,
+    flavor = "balanced";
+    tapping-term-ms = <280>;    
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <150>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_R THUMBS>;
+    hold-trigger-on-release;
+)
+
+/* Right-hand HRMs */
+ZMK_HOLD_TAP(hmr,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <150>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_L THUMBS>;
+    hold-trigger-on-release;
+)
+
 / {
     behaviors {
-        /* Timeless mod: left- and right-hand HRMs without helper, positions derived from corne.json order
-         * Left-hand keys (non-thumbs): 0-5,12-17,24-29
-         * Right-hand keys (non-thumbs): 6-11,18-23,30-35
-         * Thumbs (both sides): 36-41
-         */
-        /* Left-hand HRMs. */
-        ZMK_HOLD_TAP(hml,
-            flavor = "balanced";
-            tapping-term-ms = <280>;    
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
-            bindings = <&kp>, <&kp>;
-            /* Trigger hold when opposite hand or thumbs are pressed */
-            hold-trigger-key-positions = <KEYS_R THUMBS>;
-            hold-trigger-on-release;
-        );
-
-        /* Right-hand HRMs. */
-        ZMK_HOLD_TAP(hmr,
-            flavor = "balanced";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
-            bindings = <&kp>, <&kp>;
-            /* Trigger hold when opposite hand or thumbs are pressed */
-            hold-trigger-key-positions = <KEYS_L THUMBS>;
-            hold-trigger-on-release;
-        );
-
         u_mt: u_mt {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
