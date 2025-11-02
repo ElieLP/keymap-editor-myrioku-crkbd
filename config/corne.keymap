@@ -16,6 +16,11 @@
 
 #define QUICK_TAP_MS 175
 
+/* Layer definitions for combos */
+#define DEF 0  // BASE layer
+#define NAV 4  // NAV layer
+#define NUM 7  // NUM layer
+
 #include "combos.dtsi" // Must be sourced after HRM-combo hack.
 #include "leader.dtsi"
 
