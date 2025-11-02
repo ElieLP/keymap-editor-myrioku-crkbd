@@ -1,0 +1,36 @@
+#undef ZMK_LEADER_SEQUENCE
+#define ZMK_LEADER_SEQUENCE(name, leader_bindings, leader_sequence) \
+    / { \
+        behaviors { \
+            leader: leader { \
+                compatible = "zmk,behavior-leader-key"; \
+                #binding-cells = <0>; \
+                ignore-keys = <LSHFT RSHFT>; \
+                leader_sequence_ ## name { \
+                    bindings = <leader_bindings>; \
+                    sequence = <leader_sequence>; \
+                }; \
+            }; \
+        }; \
+    };
+
+
+// Top row (QWERTY) special characters
+ZMK_LEADER_SEQUENCE(fr_ae,          &uc UC_FR_AE,            Q)  // æ/Æ
+ZMK_LEADER_SEQUENCE(fr_e_acute,     &uc UC_FR_E_ACUTE,       W)  // é/É
+ZMK_LEADER_SEQUENCE(fr_e_grave,     &uc UC_FR_E_GRAVE,       E)  // è/È
+ZMK_LEADER_SEQUENCE(fr_u_grave,     &uc UC_FR_U_GRAVE,       U)  // ù/Ù
+ZMK_LEADER_SEQUENCE(fr_i_diaeresis, &uc UC_FR_I_DIAERESIS,   I)  // ï/Ï
+ZMK_LEADER_SEQUENCE(fr_oe,          &uc UC_FR_OE,            O)  // œ/Œ
+
+// Home row (ASDF) special characters
+ZMK_LEADER_SEQUENCE(fr_a_grave,     &uc UC_FR_A_GRAVE,       A)  // à/À
+ZMK_LEADER_SEQUENCE(fr_e_circumflex,&uc UC_FR_E_CIRCUMFLEX,  D)  // ê/Ê
+ZMK_LEADER_SEQUENCE(fr_u_circumflex,&uc UC_FR_U_CIRCUMFLEX,  J)  // û/Û
+ZMK_LEADER_SEQUENCE(fr_i_circumflex,&uc UC_FR_I_CIRCUMFLEX,  K)  // î/Î
+ZMK_LEADER_SEQUENCE(fr_o_circumflex,&uc UC_FR_O_CIRCUMFLEX,  L)  // ô/Ô
+
+// Bottom row (ZXCV) special characters
+ZMK_LEADER_SEQUENCE(fr_a_circumflex,&uc UC_FR_A_CIRCUMFLEX,  Z)  // â/Â
+ZMK_LEADER_SEQUENCE(fr_c_cedilla,   &uc UC_FR_C_CEDILLA,     C)  // ç/Ç
+

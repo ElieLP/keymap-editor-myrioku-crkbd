@@ -13,5 +13,9 @@ manifest:
       remote: urob
       revision: main
       path: modules/zmk/helpers
+    - name: zmk-unicode
+      path: modules/zmk/unicode
+    - name: zmk-leader-key
+      path: modules/zmk/leader-key
   self:
     path: config
