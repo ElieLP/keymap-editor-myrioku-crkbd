@@ -14,10 +14,11 @@
 #define COMBO_IDLE_SLOW 50
 
 
-// French characters combo - activates sticky layer
-// Tap RM3+RM2 to activate French layer, press a key, then layer auto-releases
-ZMK_COMBO(french,     &sl_french FRE, RM3 RM2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(french_sft, &sl_french FRE, RM3 RM2 RM1, DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+// Combos overlapping HRMs are set up as hold-taps themselves to allow for instantaneous
+// chording of mods. Custom hold-tap instances can be bootstrapped on the go using the
+// 8-argument version of ZMK_COMBO_8 defined in corne.keymap.
+ZMK_COMBO_8(ldr,   &leader,      RM3 RM2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, LS(LCTRL),    KEYS_R)
+ZMK_COMBO_8(ldrsh, &leader_sft,  RM3 RM2 RM1, DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, LS(LC(LALT)), KEYS_R)
 
 ZMK_COMBO(cut,   &kp LC(X),    LB3 LB1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 ZMK_COMBO(copy,  &kp LC(INS),  LB3 LB2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
