@@ -1,0 +1,165 @@
+layout: {zmk_keyboard: corne}
+layers:
+  Base:
+  - Tab
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - Bspc
+  - Esc
+  - {t: A, h: Alt}
+  - {t: S, h: Gui}
+  - {t: D, h: Ctrl}
+  - {t: F, h: Shift}
+  - G
+  - H
+  - {t: J, h: Shift}
+  - {t: K, h: Ctrl}
+  - {t: L, h: Gui}
+  - {t: ;, h: Alt}
+  - ''''
+  - Shift
+  - {t: Z, h: Button}
+  - {t: 'X', h: Alt Gr}
+  - C
+  - V
+  - B
+  - N
+  - M
+  - ','
+  - {t: '.', h: Alt Gr}
+  - {t: '/', h: Button}
+  - Enter
+  - {t: ESC, h: Media}
+  - {t: "Spc", h: Nav}
+  - {t: Tab, h: RowNum}
+  - {t: Enter, h: Sym}
+  - {t: Bspc, h: Num}
+  - {t: Del, h: Fun}
+  Extra:
+  - Tab
+  - Q
+  - C
+  - O
+  - P
+  - W
+  - J
+  - M
+  - D
+  - '!'
+  - Y
+  - Bspc
+  - Esc
+  - {t: A, h: Alt}
+  - {t: S, h: Gui}
+  - {t: E, h: Ctrl}
+  - {t: N, h: Shift}
+  - F
+  - L
+  - {t: R, h: Shift}
+  - {t: T, h: Ctrl}
+  - {t: L, h: Gui}
+  - {t: ;, h: Alt}
+  - ''''
+  - Shift
+  - {t: Z, h: Button}
+  - {t: 'X', h: Alt Gr}
+  - /
+  - V
+  - B
+  - .
+  - H
+  - G
+  - {t: '.', h: Alt Gr}
+  - {t: '/', h: Button}
+  - Enter
+  - {t: ESC, h: Media}
+  - {t: "Spc", h: Nav}
+  - {t: Tab, h: RowNum}
+  - {t: Enter, h: Sym}
+  - {t: Bspc, h: Num}
+  - {t: Del, h: Fun}
+  Tap: [Tab, Q, W, E, R, T, Y, U, I, O, P, Bspc, Esc, A, S, D, F, G, H, J, K, L, ;, '''', Shift, Z, X, C, V, B, N, M, ',', ., /, '', Esc, Spc, Tab, Enter, Bspc, Del]
+  Button: ['', UNDO, Sft+Del, Copy, Paste, AGAIN, AGAIN, Paste, Copy, Sft+Del, UNDO, '', '', Alt, Gui, Ctrl, Shift, '', '', Shift, Ctrl, Gui, Alt, '', '', UNDO, Sft+Del,
+    Copy, Paste, AGAIN, AGAIN, Paste, Copy, Sft+Del, UNDO, '', '&mkp MB3', '&mkp MB1', '&mkp MB2', '&mkp MB2', '&mkp MB1', '&mkp MB3']
+  Nav: ['', Boot, To Tap, To Extra, To Base, '', AGAIN, Paste, Copy, Sft+Del, UNDO, '', '', Alt, Gui, Ctrl, Shift, '', ←, ↓, ↑, →, Caps Word, '', '', '', Alt, To
+      Num, To Nav, '', Home, PgDn, PgUp, End, Ins, '', '', '', '', Enter, Bspc, Del]
+  RowNum: ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '', Alt, Gui, Ctrl, Shift, '', '', '4', '5', '6', KP 6, '', '', '', Alt, To Sym, To Mouse,
+    '', '', '1', '2', '3', '', '', '', '', '', '-', '0', .]
+  Media: ['', Boot, To Tap, To Extra, To Base, '', RGB Toggle, RGB Effect, RGB Hue+, RGB Sat+, RGB Bright+, '', '', Alt, Gui, Ctrl, Shift, '', Ext Power, '$$mdi:skip-backward$$',
+    '$$mdi:volume-medium$$', '$$mdi:volume-high$$', '$$mdi:skip-forward$$', '', '', '', Alt, To Fun, To Media, '', Toggle Output, BT 0, BT 1, BT 2, BT 3, '', '',
+    '', '', STOP, '$$mdi:play-pause$$', '$$mdi:volume-off$$']
+  Num:
+  - ''
+  - {t: '[', right: '{'}
+  - '7'
+  - '8'
+  - '9'
+  - {t: ']', right: '}'}
+  - ''
+  - To Base
+  - To Extra
+  - To Tap
+  - Boot
+  - ''
+  - ''
+  - +
+  - '4'
+  - '5'
+  - '6'
+  - '='
+  - ''
+  - Shift
+  - Ctrl
+  - Gui
+  - Alt
+  - ''
+  - ''
+  - '`'
+  - '1'
+  - '2'
+  - '3'
+  - \
+  - ''
+  - To Num
+  - To Nav
+  - Alt
+  - ''
+  - ''
+  - .
+  - '0'
+  - '-'
+  - ''
+  - ''
+  - ''
+  Sym: ['', '{', '&', '*', (, '}', '', To Base, To Extra, To Tap, Boot, '', '', <, $, '%', ^, '>', '', Shift, Ctrl, Gui, Alt, '', '', '~', '!', '@', '#', '|', '',
+    To Sym, To Mouse, Alt, '', '', (, ), _, '', '', '']
+  Fun: [Studio, F12, F7, F8, F9, PSCRN, '', To Base, To Extra, To Tap, Boot, '', '', F11, F4, F5, F6, SLCK, '', Shift, Ctrl, Gui, Alt, '', '', F10, F1, F2, F3, PAUSE
+      BREAK, '', To Fun, To Media, Alt, '', '', APP, Spc, Tab, '', '', '']
+combos:
+- p: [21, 20]
+  k: Leader
+  l: [Base, Extra, Tap]
+- p: [21, 20, 19]
+  k: Shift+Leader
+  l: [Base, Extra, Tap]
+  a: top
+  o: 1.35
+- p: [26, 28]
+  k: Cut
+  l: [Base, Extra, Tap]
+  a: bottom
+  o: 0.15
+- p: [26, 27]
+  k: Copy
+  l: [Base, Extra, Tap]
+- p: [27, 28]
+  k: Paste
+  l: [Base, Extra, Tap]
