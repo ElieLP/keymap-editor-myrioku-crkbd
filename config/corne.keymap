@@ -1,3 +1,4 @@
+#define HOST_OS 1
 #include <behaviors/mouse_key_press.dtsi>
 #include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
@@ -37,6 +38,8 @@
     hold-trigger-key-positions = <TRIGGER_POS>; \
     hold-trigger-on-release; \
   )
+
+
 
 /* Left-hand and Right-hand HRMs */
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS) // Left-hand HRMs.
