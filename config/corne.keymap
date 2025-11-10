@@ -81,13 +81,13 @@ ZMK_BASE_LAYER(Base,
 
 ZMK_BASE_LAYER(Extra,
 //╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮ ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
-    &kp TAB    &kp Q      &kp W      &kp D      &kp F      &kp G    ,   &kp Y      &kp J      &kp K      &kp L      &kp SEMI      &kp BSPC ,
+    &kp TAB    &kp Q      &kp W      &kp B      &kp F      &kp G    ,   &kp Y      &kp U      &kp K      &kp L      &kp SEMI      &kp BSPC ,
 //├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-    &kp ESC    &hml LALT A &hml LGUI S &hml LCTRL E &hml LSHFT R &kp T ,   &kp H      &hmr LSHFT U &hmr LCTRL I &hmr LGUI O &hmr LALT P &kp SQT ,
+    &kp ESC    &hml LALT A &hml LGUI S &hml LCTRL D &hml LSHFT R &kp T ,   &kp H      &hmr LSHFT N &hmr LCTRL I &hmr LGUI O &hmr LALT P &kp SQT ,
 //├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-    &kp LSHFT  &u_lt 3 Z  &u_mt RALT X &kp C      &kp V      &kp B    ,   &kp N      &kp M      &kp COMMA  &u_mt RALT PERIOD &u_lt 3 SLASH &kp RET ,
+    &kp LSHFT  &u_lt 3 Z  &u_mt RALT X &kp C      &kp V   &kp MINUS    ,   &kp J      &kp M      &kp COMMA  &u_mt RALT PERIOD &u_lt 3 SLASH &kp RET ,
 //╰──────────┴──────────┴──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     &u_lt 6 ESC &u_lt 4 SPACE &u_lt 5 TAB , &u_lt 8 RET &u_lt 7 BSPC &u_lt 9 DEL
+                                     &u_lt 6 ESC &u_lt 4 SPACE &u_lt 5 TAB , &u_lt 8 RET &u_lt 7 E &u_lt 9 BSPC
 //                                 ╰──────────┴──────────┴──────────╯ ╰──────────┴──────────┴──────────╯
 )
 
